@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -88,6 +95,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -264,11 +272,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2054029730598967930, guid: ac6b638748885334cb5f0ea1bc3d598b,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 138281986}
     - target: {fileID: 6437222118692502083, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -307,18 +310,18 @@ PrefabInstance:
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_text
-      value: Due to your curse, it will be hard for you to move around in one piece.
-        Can you reach the end of the road in both worlds?
+      value: "Due to your curse, it will be hard for you \nto move around in one piece.
+        \nCan you reach the end of the road \nin both worlds?"
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 121
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 26
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
@@ -328,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
@@ -338,13 +341,59 @@ PrefabInstance:
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_fontSize
-      value: 12
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 12
+      value: 11.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284102771
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092446261634399519, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054029730598967930, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 138281986}
     - target: {fileID: 9164555090178368212, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_Material
@@ -354,11 +403,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6092446261634399519, guid: ac6b638748885334cb5f0ea1bc3d598b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac6b638748885334cb5f0ea1bc3d598b, type: 3}
@@ -1260,11 +1304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2054029730598967930, guid: ac6b638748885334cb5f0ea1bc3d598b,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 138281986}
     - target: {fileID: 6437222118692502083, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1273,7 +1312,7 @@ PrefabInstance:
     - target: {fileID: 6437222118692502083, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 98.868
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5536849205442790054, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
@@ -1283,12 +1322,17 @@ PrefabInstance:
     - target: {fileID: 5536849205442790054, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 98.868
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1241324539196576904, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.61
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241324539196576904, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
@@ -1303,18 +1347,19 @@ PrefabInstance:
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_text
-      value: "Try walking around, and see what happens when you hit a wall in one
-        of the two worlds. When you\u2019re done, jump over the wall by hitting [space]. "
+      value: "Try walking around, and see what happens \nwhen you hit a wall in one
+        of the two worlds. \nWhen you\u2019re done, \njump over the wall by hitting
+        [space]. "
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 144
+      value: 147
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 28
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
@@ -1324,18 +1369,69 @@ PrefabInstance:
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_fontSize
-      value: 12
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 12
+      value: 11.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220566910275653027, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284102771
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092446261634399519, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054029730598967930, guid: ac6b638748885334cb5f0ea1bc3d598b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 138281986}
     - target: {fileID: 9164555090178368212, guid: ac6b638748885334cb5f0ea1bc3d598b,
         type: 3}
       propertyPath: m_Material
@@ -1345,11 +1441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6092446261634399519, guid: ac6b638748885334cb5f0ea1bc3d598b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac6b638748885334cb5f0ea1bc3d598b, type: 3}
