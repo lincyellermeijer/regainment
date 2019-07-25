@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     public float moveSpreed;
     public float maxSpeed;
     public float jumpForce;
@@ -21,46 +22,9 @@ public class PlayerController : MonoBehaviour {
     private float horizontalAxis;
     private bool isNearSwitch;
 
-    private void Awake() {
-        anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
-    }
 
-    private void Update() {
-
-        // Check if player is grounded
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        if (!LevelHandler.Fading) {
-            // Check if player is jumping
-            if (Input.GetButtonDown("Jump") && grounded) {
-                jump = true;
-                rb2d.AddForce(new Vector2(rb2d.gravityScale, jumpForce));
-            }
-            // Check if player pressed E for activating switch
-            if (Input.GetButtonDown("Fire1") && isNearSwitch) {
-                GameObject[] objs;
-                objs = GameObject.FindGameObjectsWithTag("GravitySwitch");
-                foreach (GameObject gravitySwitch in objs) {
-                    gravitySwitch.GetComponent<GravitySwitch>().ToggleSwitch();
-                }
-                FlipGravity();
-            }
-
-            // Calculate velocity for movement
-            horizontalAxis = Input.GetAxis("Horizontal");
-            rb2d.velocity = new Vector2(moveSpreed * horizontalAxis, rb2d.velocity.y);
-            SetAnimations(horizontalAxis);
-        } 
-        // When in load / fade freeze and reset movement of the player
-        else {
-            horizontalAxis = 0f;
-            rb2d.velocity = Vector2.zero;
-            anim.SetFloat("Speed", 0f);
-        }
-    }
-
-
-    public void FlipGravity() {
+    public void FlipGravity()
+    {
         MainPlayer player = GameObject.FindWithTag("Player").GetComponent<MainPlayer>();
         MirrorPlayer mirrorPlayer = GameObject.FindWithTag("MirrorPlayer").GetComponent<MirrorPlayer>();
 
@@ -74,29 +38,120 @@ public class PlayerController : MonoBehaviour {
         mirrorPlayer.jumpForce *= -1;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "GravitySwitch") {
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+
+    private void Update()
+    {
+        // Check if player is grounded
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+        if (LevelHandler.instance == null)
+        {
+            // Ignore fading statement
+            PressJump();
+            PressInteract();
+            CalculateVelocity();
+        }
+        else
+        {
+            if (!LevelHandler.Fading)
+            {
+                PressJump();
+                PressInteract();
+                CalculateVelocity();
+            }
+            // When in load / fade freeze and reset movement of the player
+            else
+            {
+                ResetMovement();
+            }
+        }
+    }
+
+
+    private void ResetMovement()
+    {
+        horizontalAxis = 0f;
+        rb2d.velocity = Vector2.zero;
+        anim.SetFloat("Speed", 0f);
+    }
+
+
+    private void CalculateVelocity()
+    {
+        // Calculate velocity for movement
+        horizontalAxis = Input.GetAxis("Horizontal");
+        rb2d.velocity = new Vector2(moveSpreed * horizontalAxis, rb2d.velocity.y);
+        SetAnimations(horizontalAxis);
+    }
+
+
+    private void PressInteract()
+    {
+        // Check if player pressed E for activating switch
+        if (Input.GetButtonDown("Fire1") && isNearSwitch)
+        {
+            GameObject[] objs;
+            objs = GameObject.FindGameObjectsWithTag("GravitySwitch");
+            foreach (GameObject gravitySwitch in objs)
+            {
+                gravitySwitch.GetComponent<GravitySwitch>().ToggleSwitch();
+            }
+            FlipGravity();
+        }
+    }
+
+
+    private void PressJump()
+    {
+        // Check if player is jumping
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            jump = true;
+            rb2d.AddForce(new Vector2(rb2d.gravityScale, jumpForce));
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "GravitySwitch")
+        {
             isNearSwitch = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) {
-        if (other.tag == "GravitySwitch") {
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "GravitySwitch")
+        {
             isNearSwitch = false;
         }
     }
 
+
     // Set the animations for moving, jumping and turning
-    private void SetAnimations(float horizontalAxis) {
+    private void SetAnimations(float horizontalAxis)
+    {
         anim.SetFloat("Speed", Mathf.Abs(horizontalAxis));
 
-        if (jump) {
+        if (jump)
+        {
             anim.SetTrigger("Jump");
             jump = false;
         }
 
-        if (horizontalAxis < 0 && facingRight || horizontalAxis > 0 && !facingRight) {
-            if (grounded) {
+        if (horizontalAxis < 0 && facingRight || horizontalAxis > 0 && !facingRight)
+        {
+            if (grounded)
+            {
                 anim.SetTrigger("Turn");
             }
             facingRight = !facingRight;
@@ -106,5 +161,6 @@ public class PlayerController : MonoBehaviour {
 
         }
     }
+
 
 }

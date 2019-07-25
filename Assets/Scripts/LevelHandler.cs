@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelHandler : MonoBehaviour {
-    
+public class LevelHandler : MonoBehaviour
+{
     public static LevelHandler instance;
     public RawImage overlay;
 
@@ -30,14 +30,17 @@ public class LevelHandler : MonoBehaviour {
     private bool hasRestarted;
     private GameObject overlayObject;
 
-    private void Awake() {
+    private void Awake()
+    {
         //Check if instance already exists
-        if (instance == null) {
+        if (instance == null)
+        {
             //if not, set instance to this
             instance = this;
         }
         //If instance already exists and it's not this:
-        else if (instance != this) {
+        else if (instance != this)
+        {
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
         }
@@ -47,34 +50,44 @@ public class LevelHandler : MonoBehaviour {
     }
 
 
-    private void Start() {
+    private void Start()
+    {
         startColor = overlay.color;
         overlayObject = GameObject.FindGameObjectWithTag("FadingOverlay");
     }
 
 
-    private void Update() {
-        if (Input.GetKeyUp(KeyCode.Escape)) {
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
             StopCutscene();
         }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
+        {
             Scene currentScene = SceneManager.GetActiveScene();
 
-            if (currentScene.name == "Intro") {
+            if (currentScene.name == "Intro")
+            {
                 Debug.LogError("Cannot reload this scene");
-            } else {
+            }
+            else
+            {
                 int sceneToReload = currentScene.buildIndex;
                 LoadLevel(sceneToReload);
             }
         }
-        if (hasRestarted) {
+        if (hasRestarted)
+        {
             Scene currentScene = SceneManager.GetActiveScene();
-            if (currentScene.name == "Credits") {
+            if (currentScene.name == "Credits")
+            {
                 // Destroy objects who won't destroy on load
                 Destroy(overlayObject);
                 Destroy(this.gameObject);
             }
-            if (currentScene.name == "Intro") {
+            if (currentScene.name == "Intro")
+            {
                 audioSource.Play();
             }
         }
@@ -82,35 +95,40 @@ public class LevelHandler : MonoBehaviour {
 
 
     /***** LOAD SCENES *****/
-
-
-    public void LoadNextLevel() {
+    public void LoadNextLevel()
+    {
         int sceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (sceneToLoad < SceneManager.sceneCountInBuildSettings) {
+        if (sceneToLoad < SceneManager.sceneCountInBuildSettings)
+        {
             {
                 LoadLevel(sceneToLoad);
             }
-        } else {
+        }
+        else
+        {
             Debug.LogWarning("NO NEXT SCENE DEFINED");
         }
     }
 
 
-    public void LoadEnding() {
+    public void LoadEnding()
+    {
         isFading = true;
         overlay.color = startColor;
         PlayThenDoSomething(cutscene2, GoToCreditsScene);
     }
 
-    private void GoToCreditsScene() {
+    private void GoToCreditsScene()
+    {
         audioSource.Stop();
         Time.timeScale = 1.0f;
         hasRestarted = true;
         SceneManager.LoadScene("Credits");
     }
 
-    private static void LoadLevel(int aLevelIndex) {
+    private static void LoadLevel(int aLevelIndex)
+    {
         if (Fading) return;
         instance.levelIndex = aLevelIndex;
         instance.StartFade();
@@ -118,19 +136,20 @@ public class LevelHandler : MonoBehaviour {
 
 
     /***** FADE IN / OUT *****/
-
-
-    private void StartFade() {
+    private void StartFade()
+    {
         isFading = true;
         StartCoroutine(Fade());
     }
 
 
-    private IEnumerator ManualFade(Color fromColor, Color toColor) {
+    private IEnumerator ManualFade(Color fromColor, Color toColor)
+    {
         float fadeRate = 1f / 1f;
         fadeProgress = 0f;
 
-        while (fadeProgress < 1f) {
+        while (fadeProgress < 1f)
+        {
             overlay.color = Color.Lerp(fromColor, toColor, fadeProgress);
 
             fadeProgress += fadeRate * Time.deltaTime;
@@ -141,10 +160,12 @@ public class LevelHandler : MonoBehaviour {
     }
 
 
-    private IEnumerator Fade() {
+    private IEnumerator Fade()
+    {
         fadeProgress = 0f;
 
-        while (fadeProgress < 1.0f) {
+        while (fadeProgress < 1.0f)
+        {
             yield return new WaitForEndOfFrame();
             fadeProgress = Mathf.Clamp01(fadeProgress + Time.deltaTime / fadeOutTime);
             overlay.color = Color.Lerp(Color.clear, startColor, fadeProgress);
@@ -152,7 +173,8 @@ public class LevelHandler : MonoBehaviour {
 
         SceneManager.LoadScene(levelIndex);
 
-        while (fadeProgress > 0f) {
+        while (fadeProgress > 0f)
+        {
             yield return new WaitForEndOfFrame();
             fadeProgress = Mathf.Clamp01(fadeProgress - Time.deltaTime / fadeInTime);
             overlay.color = Color.Lerp(Color.clear, startColor, fadeProgress);
@@ -163,10 +185,10 @@ public class LevelHandler : MonoBehaviour {
 
 
     /***** CUTSCENES *****/
-
-
-    public void PlayThenDoSomething(MovieTexture movieTexture, Action callback) {
-        if (movieTexture != null) {
+    public void PlayThenDoSomething(MovieTexture movieTexture, Action callback)
+    {
+        if (movieTexture != null)
+        {
             movieTexture.Stop();
             movieTexture.Play();
             audioSource.clip = movieTexture.audioClip;
@@ -179,31 +201,37 @@ public class LevelHandler : MonoBehaviour {
     }
 
 
-    private void StopCutscene() {
+    private void StopCutscene()
+    {
         Screen.fullScreen = false;
         audioSource.Stop();
 
-        if (cutscene1 != null && cutscene1.isPlaying) {
+        if (cutscene1 != null && cutscene1.isPlaying)
+        {
             cutscene1.Stop();
             FadeAndContinue();
         }
-        if (cutscene2 != null && cutscene2.isPlaying) {
+        if (cutscene2 != null && cutscene2.isPlaying)
+        {
             cutscene2.Stop();
             GoToCreditsScene();
         }
     }
 
 
-    private void FadeAndContinue() {
+    private void FadeAndContinue()
+    {
         audioSource.clip = backgroundMusic;
         audioSource.Play();
         StartCoroutine(ManualFade(startColor, Color.clear));
         Time.timeScale = 1.0f;
     }
 
-    
-    private IEnumerator FindEnd(MovieTexture movieTexture, Action callback) {
-        while (movieTexture.isPlaying) {
+
+    private IEnumerator FindEnd(MovieTexture movieTexture, Action callback)
+    {
+        while (movieTexture.isPlaying)
+        {
             yield return 0;
         }
 
@@ -212,12 +240,15 @@ public class LevelHandler : MonoBehaviour {
     }
 
 
-    private void OnGUI() {
-        if (cutscene1 != null && cutscene1.isPlaying) {
+    private void OnGUI()
+    {
+        if (cutscene1 != null && cutscene1.isPlaying)
+        {
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), cutscene1, ScaleMode.StretchToFill);
         }
 
-        if (cutscene2 != null && cutscene2.isPlaying) {
+        if (cutscene2 != null && cutscene2.isPlaying)
+        {
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), cutscene2, ScaleMode.StretchToFill);
         }
     }
