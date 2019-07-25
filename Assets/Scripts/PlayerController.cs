@@ -4,16 +4,18 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpreed;
-    public float maxSpeed;
-    public float jumpForce;
+    public float moveSpreed = 15f;
+    public float maxSpeed = 7.5f;
+    public float jumpVelocity = 7.5f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
     public Transform groundCheck;
 
     internal Rigidbody2D rb2d;
 
     private bool facingRight = true;
-    private bool jump = false;
-    private bool grounded = false;
+    private bool isJumping = false;
+    private bool isGrounded = false;
 
     private Animator anim;
 
@@ -23,19 +25,15 @@ public class PlayerController : MonoBehaviour
     private bool isNearSwitch;
 
 
-    public void FlipGravity()
+    public virtual void FlipGravity()
     {
-        MainPlayer player = GameObject.FindWithTag("Player").GetComponent<MainPlayer>();
-        MirrorPlayer mirrorPlayer = GameObject.FindWithTag("MirrorPlayer").GetComponent<MirrorPlayer>();
+        // Method to activate when gravity is flipped
+    }
 
-        // Reverse gravity
-        player.transform.Rotate(new Vector3(180f, 0f, 0f));
-        player.rb2d.gravityScale *= -1;
-        player.jumpForce *= -1;
 
-        mirrorPlayer.transform.Rotate(new Vector3(180f, 0f, 0f));
-        mirrorPlayer.rb2d.gravityScale *= -1;
-        mirrorPlayer.jumpForce *= -1;
+    public virtual void BetterJump()
+    {
+        // Method to calculate falling multiplier and add low jump
     }
 
 
@@ -49,28 +47,27 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Check if player is grounded
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (LevelHandler.instance == null)
-        {
-            // Ignore fading statement
-            PressJump();
-            PressInteract();
-            CalculateVelocity();
-        }
-        else
+        if (LevelHandler.instance != null)
         {
             if (!LevelHandler.Fading)
             {
                 PressJump();
                 PressInteract();
-                CalculateVelocity();
+                MoveHorizontal();
             }
             // When in load / fade freeze and reset movement of the player
             else
             {
                 ResetMovement();
             }
+        }
+        else
+        {
+            PressJump();
+            PressInteract();
+            MoveHorizontal();
         }
     }
 
@@ -83,7 +80,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void CalculateVelocity()
+    private void MoveHorizontal()
     {
         // Calculate velocity for movement
         horizontalAxis = Input.GetAxis("Horizontal");
@@ -110,11 +107,13 @@ public class PlayerController : MonoBehaviour
 
     private void PressJump()
     {
+        BetterJump();
+
         // Check if player is jumping
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            jump = true;
-            rb2d.AddForce(new Vector2(rb2d.gravityScale, jumpForce));
+            isJumping = true;
+            rb2d.velocity = Vector2.up * jumpVelocity;
         }
     }
 
@@ -142,15 +141,15 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetFloat("Speed", Mathf.Abs(horizontalAxis));
 
-        if (jump)
+        if (isJumping)
         {
             anim.SetTrigger("Jump");
-            jump = false;
+            isJumping = false;
         }
 
         if (horizontalAxis < 0 && facingRight || horizontalAxis > 0 && !facingRight)
         {
-            if (grounded)
+            if (isGrounded)
             {
                 anim.SetTrigger("Turn");
             }
