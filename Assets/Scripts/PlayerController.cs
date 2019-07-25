@@ -12,25 +12,16 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     internal Rigidbody2D rb2d;
-    internal bool isFlipped = false;
 
     private bool facingRight = true;
     private bool isJumping = false;
     private bool isGrounded = false;
 
     private Animator anim;
-
     private int jumpHash;
     private int runStateHash;
     private float horizontalAxis;
     private bool isNearSwitch;
-
-
-    public virtual void FlipGravity()
-    {
-        // Reverse gravity
-        isFlipped = isFlipped == true ? false : true;
-    }
 
 
     public virtual void BetterJump()
@@ -117,6 +108,32 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             rb2d.velocity = Vector2.up * jumpVelocity;
         }
+    }
+
+
+    private void FlipGravity()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        MainPlayer playerScript = player.GetComponent<MainPlayer>();
+        
+        GameObject mirrorPlayer = GameObject.FindWithTag("MirrorPlayer");
+        MirrorPlayer mirrorPlayerScript = mirrorPlayer.GetComponent<MirrorPlayer>();
+
+        // Reverse gravity
+        ApplyGravity(player);
+        ApplyGravity(mirrorPlayer);
+
+        playerScript.isFlipped = playerScript.isFlipped == true ? false : true;
+        playerScript.jumpVelocity *= -1;
+        mirrorPlayerScript.isFlipped = mirrorPlayerScript.isFlipped == true ? false : true;
+        mirrorPlayerScript.jumpVelocity *= -1;
+    }
+
+
+    private void ApplyGravity(GameObject thisPlayer)
+    {
+        thisPlayer.transform.Rotate(new Vector3(180f, 0f, 0f));
+        thisPlayer.GetComponent<Rigidbody2D>().gravityScale *= -1;
     }
 
 

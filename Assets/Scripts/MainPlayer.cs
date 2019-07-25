@@ -4,16 +4,7 @@ using System.Collections;
 public class MainPlayer : PlayerController
 {
 
-
-    public override void FlipGravity()
-    {
-        // Reverse gravity
-        transform.Rotate(new Vector3(180f, 0f, 0f));
-        rb2d.gravityScale *= -1;
-        jumpVelocity *= -1;
-
-        base.FlipGravity();
-    }
+    internal bool isFlipped = false;
 
 
     public override void BetterJump()

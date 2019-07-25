@@ -4,22 +4,14 @@ using System.Collections;
 public class MirrorPlayer : PlayerController
 {
 
+    internal bool isFlipped = false;
+
+
     // Reverse gravity for mirrored player
     private void Start()
     {
         rb2d.gravityScale *= -1;
         jumpVelocity *= -1;
-    }
-
-
-    public override void FlipGravity()
-    {
-        Debug.Log(" FLIP MIRROR PLAYER");
-        transform.Rotate(new Vector3(180f, 0f, 0f));
-        rb2d.gravityScale *= -1;
-        jumpVelocity *= -1;
-
-        base.FlipGravity();
     }
 
 
