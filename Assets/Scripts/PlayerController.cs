@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     internal Rigidbody2D rb2d;
+    internal bool isFlipped = false;
 
     private bool facingRight = true;
     private bool isJumping = false;
@@ -27,7 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public virtual void FlipGravity()
     {
-        // Method to activate when gravity is flipped
+        // Reverse gravity
+        isFlipped = isFlipped == true ? false : true;
     }
 
 
