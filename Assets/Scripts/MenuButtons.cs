@@ -19,8 +19,8 @@ public class MenuButtons : MonoBehaviour
 
     private void Update()
     {
-        // If escape is pressed during the credits, go back to startscreen
-        if (Input.GetKeyUp(KeyCode.Escape))
+        // If cancel (ESC or B) is pressed during the credits, go back to startscreen
+        if (Input.GetButtonDown("Cancel"))
         {
             Scene currentScene = SceneManager.GetActiveScene();
             if (currentScene.name == "Credits")

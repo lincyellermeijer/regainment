@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private void PressInteract()
     {
         // Check if player pressed E for activating switch
-        if (Input.GetButtonDown("Fire1") && isNearSwitch)
+        if (Input.GetButtonDown("Interact") && isNearSwitch)
         {
             GameObject[] objs;
             objs = GameObject.FindGameObjectsWithTag("GravitySwitch");

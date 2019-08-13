@@ -70,14 +70,14 @@ public class LevelHandler : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
-            // When escape is pressed during a cutscene, skip it
+            // When cancel (ESC or B) is pressed during a cutscene, skip it
 
             StopCutscene();
 
         }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonDown("Reset"))
         {
             Scene currentScene = SceneManager.GetActiveScene();
 
