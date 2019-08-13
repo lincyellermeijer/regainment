@@ -3,7 +3,12 @@ guid: 99d3168d6076d1f418465fa78dca6a29
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - overlay: {instanceID: 0}
+  - cutscene1: {fileID: 15200000, guid: 31e0923824a02874292581250a5886d1, type: 3}
+  - cutscene2: {fileID: 15200000, guid: 2d282b498af5f5442bcb053145918adb, type: 3}
+  - backgroundMusic: {fileID: 8300000, guid: 118c2c7cf8c9177428a7bd1bdd3d5173, type: 3}
+  - buttonSelected: {fileID: 8300000, guid: bee2a14471c8a15478b853827f526670, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

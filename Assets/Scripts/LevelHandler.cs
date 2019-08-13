@@ -1,34 +1,42 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class LevelHandler : MonoBehaviour
 {
+
     public static LevelHandler instance;
-    public RawImage overlay;
 
-    public float fadeOutTime = 0.5f;
-    public float fadeInTime = 0.2f;
 
-    public MovieTexture cutscene1;
-    public MovieTexture cutscene2;
-    public AudioClip backgroundMusic;
+    // Load assets in inspector
+    [SerializeField] private RawImage overlay;
+    [SerializeField] private MovieTexture cutscene1;
+    [SerializeField] private MovieTexture cutscene2;
+    [SerializeField] private AudioClip backgroundMusic;
+
 
     public static bool Fading {
         get { return instance.isFading; }
     }
 
-    private Color startColor;
-    private AudioSource audioSource;
+
+    private float fadeOutTime = 0.5f;
+    private float fadeInTime = 0.2f;
     private float fadeProgress;
-    private bool isFading;
+
     private int levelIndex;
+
+    private bool isFading;
     private bool inCountDown;
     private bool hasRestarted;
+
     private GameObject overlayObject;
+    private Color startColor;
+    private AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -52,16 +60,23 @@ public class LevelHandler : MonoBehaviour
 
     private void Start()
     {
-        startColor = overlay.color;
-        overlayObject = GameObject.FindGameObjectWithTag("FadingOverlay");
+        if (overlay != null)
+        {
+            startColor = overlay.color;
+            overlayObject = GameObject.FindGameObjectWithTag("FadingOverlay");
+        }
     }
 
 
     private void Update()
     {
+
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            // When escape is pressed during a cutscene, skip it
+
             StopCutscene();
+
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
         {
@@ -94,7 +109,7 @@ public class LevelHandler : MonoBehaviour
     }
 
 
-    /***** LOAD SCENES *****/
+    /***** LOAD LEVELS *****/
     public void LoadNextLevel()
     {
         int sceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
@@ -116,16 +131,18 @@ public class LevelHandler : MonoBehaviour
     {
         isFading = true;
         overlay.color = startColor;
-        PlayThenDoSomething(cutscene2, GoToCreditsScene);
+        PlayThenDoSomething(cutscene2, LoadEndingCredits);
     }
 
-    private void GoToCreditsScene()
+
+    private void LoadEndingCredits()
     {
         audioSource.Stop();
         Time.timeScale = 1.0f;
         hasRestarted = true;
         SceneManager.LoadScene("Credits");
     }
+
 
     private static void LoadLevel(int aLevelIndex)
     {
@@ -140,6 +157,15 @@ public class LevelHandler : MonoBehaviour
     {
         isFading = true;
         StartCoroutine(Fade());
+    }
+
+
+    private void FadeAndContinue()
+    {
+        audioSource.clip = backgroundMusic;
+        audioSource.Play();
+        StartCoroutine(ManualFade(startColor, Color.clear));
+        Time.timeScale = 1.0f;
     }
 
 
@@ -214,17 +240,8 @@ public class LevelHandler : MonoBehaviour
         if (cutscene2 != null && cutscene2.isPlaying)
         {
             cutscene2.Stop();
-            GoToCreditsScene();
+            LoadEndingCredits();
         }
-    }
-
-
-    private void FadeAndContinue()
-    {
-        audioSource.clip = backgroundMusic;
-        audioSource.Play();
-        StartCoroutine(ManualFade(startColor, Color.clear));
-        Time.timeScale = 1.0f;
     }
 
 
