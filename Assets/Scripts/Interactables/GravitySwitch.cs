@@ -1,32 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class GravitySwitch : MonoBehaviour
 {
-    public Sprite normalSprite;
-    public Sprite flippedSprite;
+
+    // Load sprites in inspector
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite flippedSprite;
+
 
     internal bool isFlipped = false;
+
 
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
 
-    private void Start() {
+
+    private void Start()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void ToggleSwitch() {
+
+    // When gravity switch is activated, flip player sprite and play audio (gravity is handled in PlayerController)
+    public void ToggleSwitch()
+    {
         isFlipped = !isFlipped;
 
         audioSource.Play();
 
-        if (isFlipped) {
+        if (isFlipped)
+        {
             spriteRenderer.sprite = flippedSprite;
-        } else {
+        }
+        else
+        {
             spriteRenderer.sprite = normalSprite;
         }
     }
+
+
 }

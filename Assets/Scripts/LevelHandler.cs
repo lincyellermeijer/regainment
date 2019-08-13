@@ -10,17 +10,16 @@ public class LevelHandler : MonoBehaviour
 
     public static LevelHandler instance;
 
+    public static bool Fading {
+        get { return instance.isFading; }
+    }
+
 
     // Load assets in inspector
     [SerializeField] private RawImage overlay;
     [SerializeField] private MovieTexture cutscene1;
     [SerializeField] private MovieTexture cutscene2;
     [SerializeField] private AudioClip backgroundMusic;
-
-
-    public static bool Fading {
-        get { return instance.isFading; }
-    }
 
 
     private float fadeOutTime = 0.5f;
