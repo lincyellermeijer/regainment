@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -378,6 +378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1402153145067862, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
+      propertyPath: m_Name
+      value: Main Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 4999334680998776, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -410,11 +414,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114828129495317498, guid: 0445f7bd80675ec43b9e6072d4076cbd,
-        type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 1052180040}
+    - target: {fileID: 4999334680998776, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999334680998776, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999334680998776, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114828129495317498, guid: 0445f7bd80675ec43b9e6072d4076cbd,
         type: 3}
       propertyPath: Target1
@@ -425,11 +436,6 @@ PrefabInstance:
       propertyPath: Target2
       value: 
       objectReference: {fileID: 1206555254}
-    - target: {fileID: 20560532465373494, guid: 0445f7bd80675ec43b9e6072d4076cbd,
-        type: 3}
-      propertyPath: orthographic size
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0445f7bd80675ec43b9e6072d4076cbd, type: 3}
 --- !u!1 &144485261
@@ -1033,6 +1039,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
