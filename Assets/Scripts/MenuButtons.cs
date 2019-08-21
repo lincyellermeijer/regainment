@@ -14,7 +14,7 @@ public class MenuButtons : MonoBehaviour
 
 
     private AudioSource audioSource;
-
+    private bool xboxController;
 
     private void Start()
     {
@@ -29,16 +29,30 @@ public class MenuButtons : MonoBehaviour
 
     private void Update()
     {
-        // Display icons when controller connects / disconnects
-        if (Input.GetJoystickNames().Length > 0)
+        string[] names = Input.GetJoystickNames();
+        for (int x = 0; x < names.Length; x++)
         {
-            controllerDisconnected.SetActive(true);
-            controllerConnected.SetActive(false);
+            // print(names[x].Length);
+            if (names[x].Length == 51) // xbox 360 controller
+            {
+                print("XBOX CONTROLLER IS CONNECTED");
+                xboxController = true;
+            }
+            else {
+                xboxController = false;
+            }
         }
-        else
+
+        // Display icons when controller connects / disconnects
+        if (xboxController == true)
         {
             controllerDisconnected.SetActive(false);
             controllerConnected.SetActive(true);
+        }
+        else if (xboxController == false)
+        {
+            controllerDisconnected.SetActive(true);
+            controllerConnected.SetActive(false);
         }
     }
 
