@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66816032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1120500749}
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73833704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 908891313}
@@ -344,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300748231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336954372}
@@ -491,10 +491,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 336954371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.2
 --- !u!1 &500645138
 GameObject:
@@ -521,7 +521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500645138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1018979761}
@@ -668,10 +668,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 503159669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.2
 --- !u!1 &831014952
 GameObject:
@@ -698,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831014952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1758410497}
@@ -845,10 +845,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 908891312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.2
 --- !u!1 &964652547
 GameObject:
@@ -875,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964652547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1120500749}
@@ -1022,10 +1022,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018979760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.8
 --- !u!1 &1072556729
 GameObject:
@@ -1052,7 +1052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072556729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1576749273}
@@ -1199,10 +1199,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120500748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.2
 --- !u!1 &1262276654
 GameObject:
@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262276654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1408033480}
@@ -1309,7 +1309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324763125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 908891313}
@@ -1456,10 +1456,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408033479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.5
 --- !u!1 &1452056303
 GameObject:
@@ -1486,7 +1486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452056303}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 503159670}
@@ -1594,7 +1594,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 21.5
+  orthographic size: 21.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1650,7 +1650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483130869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1018979761}
@@ -1797,10 +1797,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535101261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0.5
 --- !u!1 &1543455729
 GameObject:
@@ -1827,7 +1827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543455729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 503159670}
@@ -1891,8 +1891,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576749273}
-  - component: {fileID: 1576749274}
   - component: {fileID: 1576749275}
+  - component: {fileID: 1576749274}
   m_Layer: 0
   m_Name: ground
   m_TagString: Untagged
@@ -1925,10 +1925,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576749272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 0
 --- !u!212 &1576749275
 SpriteRenderer:
@@ -2004,7 +2004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650379678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1758410497}
@@ -2084,7 +2084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690330427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1535101262}
@@ -2148,8 +2148,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758410497}
-  - component: {fileID: 1758410498}
   - component: {fileID: 1758410499}
+  - component: {fileID: 1758410498}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -2182,10 +2182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758410496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c4f989f4e35634fa03143fdc6241ee, type: 3}
+  m_Script: {fileID: 11500000, guid: ae74713f99a8789449c77e2164ffca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1480365086}
+  cam: {fileID: 1480365088}
   parallaxEffect: 1
 --- !u!212 &1758410499
 SpriteRenderer:
@@ -2261,7 +2261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848556781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1535101262}
@@ -2341,7 +2341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866028239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336954372}
@@ -2421,7 +2421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885243191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1576749273}
@@ -2501,7 +2501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886602495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalPosition: {x: -76.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1408033480}
